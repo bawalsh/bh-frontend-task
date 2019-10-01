@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+}
+
+.heading {
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.image {
+    width: auto;
+    max-height: 10em;
+}
