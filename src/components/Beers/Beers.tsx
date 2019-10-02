@@ -36,16 +36,21 @@ const Beers: React.FC = () => {
     <>
       <h1 className={styles.heading}>Beers</h1>
       <ul className={styles.list}>
-        {beers.map((beer) => (
-          <li key={beer.id} className={styles.item}>
-            <BeerCompact
-              name={beer.name}
-              tagline={beer.tagline}
-              imageUrl={beer.image_url}
-              abv={beer.abv}
-            />
-          </li>
-        ))}
+        {beers.map((beer) => {
+          const urlToBeerDetails = `/${beer.id}`
+
+          return (
+            <li key={beer.id} className={styles.item}>
+              <BeerCompact
+                name={beer.name}
+                tagline={beer.tagline}
+                imageUrl={beer.image_url}
+                abv={beer.abv}
+                urlToBeerDetails={urlToBeerDetails}
+              />
+            </li>
+          )
+        })}
       </ul>
     </>
   )
