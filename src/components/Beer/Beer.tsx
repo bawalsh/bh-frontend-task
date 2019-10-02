@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { RouteComponentProps } from 'react-router-dom'
+
 import { API_URL } from 'config'
 import BeerDetail from 'components/BeerDetail/BeerDetail'
+import Loader from 'components/Loader/Loader'
 
 interface Params {
   id: string
@@ -38,7 +40,7 @@ const Beer: React.FC<RouteComponentProps<Params>> = ({ match }) => {
     }
   }, [match.params.id])
 
-  if (beer == null) return null
+  if (beer == null) return <Loader message={'Loading beer details'} />
 
   return (
     <BeerDetail

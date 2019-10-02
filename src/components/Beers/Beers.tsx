@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { API_URL } from 'config'
 import styles from 'components/Beers/Beers.module.css'
 import BeerCompact from 'components/BeerCompact/BeerCompact'
+import Loader from 'components/Loader/Loader'
 
 type BeersResponse = {
   id: number
@@ -31,6 +32,8 @@ const Beers: React.FC = () => {
       shouldSet = false
     }
   }, [])
+
+  if (beers.length === 0) return <Loader message={'Loading beers'} />
 
   return (
     <>
