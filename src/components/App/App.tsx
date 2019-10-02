@@ -1,20 +1,14 @@
 import React from 'react'
-import BeerCompact from 'components/BeerCompact/BeerCompact'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Beers from 'components/Beers/Beers'
 
 const App: React.FC = () => (
-  <>
-    <div>Have a look at the README for instructions</div>
-    <div>
-      Edit <code>src/App.tsx</code> and save to reload.
-    </div>
-
-    <BeerCompact
-      name='Buzz'
-      tagline='A Real Bitter Experience.'
-      image='https://images.punkapi.com/v2/keg.png'
-      abv={4.5}
-    />
-  </>
+  <Router>
+    <Switch>
+      {/*<Route path={'/:id'} component={Beer} />*/}
+      <Route exact path={'/'} component={Beers} />
+    </Switch>
+  </Router>
 )
 
 export default App
