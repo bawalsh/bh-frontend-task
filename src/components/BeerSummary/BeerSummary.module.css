@@ -3,19 +3,26 @@
   justify-content: space-between;
   background: linear-gradient(#eeeeee, #dddddd);
   border-radius: 10px;
-  padding: 1em;
+  padding: 0.5em;
   width: 20em;
 }
 
 .heading {
   font-size: 2em;
   font-weight: 500;
+  margin-bottom: 0.1em;
+}
+
+.heading a {
+  color: #227dee;
+}
+
+.heading a:hover {
+  color: #204b96;
 }
 
 .tagline {
-  margin-top: 0.3em;
   font-style: italic;
-  margin-bottom: 0.5em;
 }
 
 .abv {
@@ -23,7 +30,7 @@
 }
 
 .image {
-  height: 8em;
+  height: 10em;
   margin: 0 auto 0 auto;
 }
 

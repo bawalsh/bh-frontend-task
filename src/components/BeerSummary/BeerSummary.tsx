@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import styles from 'components/BeerCompact/BeerCompact.module.css'
+import styles from 'components/BeerSummary/BeerSummary.module.css'
 import { trimText } from 'utils'
 
 export type Props = {
@@ -20,7 +20,7 @@ export type Props = {
  * @param abv - The Alcohol By Volume of the beer
  * @param urlToBeerDetails - The URL to view the beer details
  */
-const BeerCompact: React.FC<Props> = ({
+const BeerSummary: React.FC<Props> = ({
   name,
   tagline,
   imageUrl,
@@ -30,10 +30,11 @@ const BeerCompact: React.FC<Props> = ({
   <section className={styles.container}>
     <img src={imageUrl} className={styles.image} alt={name} />
     <div className={styles.content}>
-      <Link to={urlToBeerDetails}>
-        <h2 className={styles.heading}>{trimText(name)}</h2>
-      </Link>
+      <h2 className={styles.heading}>
+        <Link to={urlToBeerDetails}>{trimText(name)}</Link>
+      </h2>
       <p className={styles.tagline}>{tagline}</p>
+      <br />
       <span className={styles.abv}>
         {abv}
         <br />
@@ -43,4 +44,4 @@ const BeerCompact: React.FC<Props> = ({
   </section>
 )
 
-export default BeerCompact
+export default BeerSummary

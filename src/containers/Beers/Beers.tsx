@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import { API_URL } from 'config'
 import styles from 'containers/Beers/Beers.module.css'
-import BeerCompact from 'components/BeerCompact/BeerCompact'
+import BeerSummary from 'components/BeerSummary/BeerSummary'
 import Loader from 'components/Loader/Loader'
 
 type BeersResponse = {
@@ -44,7 +44,7 @@ const Beers: React.FC = () => {
 
           return (
             <li key={beer.id} className={styles.item}>
-              <BeerCompact
+              <BeerSummary
                 name={beer.name}
                 tagline={beer.tagline}
                 imageUrl={beer.image_url}

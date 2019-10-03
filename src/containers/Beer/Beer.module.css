@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 40em;
+}
+
+.pageHeading {
+  font-size: 4em;
+  font-weight: 600;
+}
+
+.heading {
+  font-size: 3em;
+  font-weight: 600;
+  margin-bottom: 0.1em;
+}
+
+.tagline {
+  font-style: italic;
+}
+
+.detailLabel {
+  font-weight: 700;
+}
+
+.image {
+  height: 25em;
+  margin: 0 auto 0 auto;
+}
+
+.content {
+  width: 60%;
+  margin-left: 1em;
+}
+
+.list {
+  list-style-type: circle;
+  list-style-position: inside;
+}
