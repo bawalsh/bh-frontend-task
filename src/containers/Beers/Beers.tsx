@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
-import { API_URL } from 'config'
 import styles from 'containers/Beers/Beers.module.css'
 import BeerSummary from 'components/BeerSummary/BeerSummary'
-import Loader from 'components/Loader/Loader'
+import Page from 'containers/Page/Page'
+import useBeerApi from 'hooks/useBeerApi'
 
 type BeersResponse = {
   id: number
@@ -14,48 +14,30 @@ type BeersResponse = {
 }[]
 
 const Beers: React.FC = () => {
-  const [beers, setBeers] = useState<BeersResponse>([])
-
-  useEffect(() => {
-    let shouldSet = true
-
-    const fetchBeers = async () => {
-      const res = await fetch(`${API_URL}/beers`)
-
-      if (res.ok && shouldSet) {
-        setBeers(await res.json())
-      }
-    }
-
-    fetchBeers()
-    return () => {
-      shouldSet = false
-    }
-  }, [])
-
-  if (beers.length === 0) return <Loader message={'Loading beers'} />
+  const beers = useBeerApi<BeersResponse>('/beers')
 
   return (
-    <>
-      <h1 className={styles.heading}>Beers</h1>
+    <Page isLoading={!beers || beers.length === 0} title="Beers">
       <ul className={styles.list}>
-        {beers.map((beer) => {
-          const urlToBeerDetails = `/${beer.id}`
+        {beers
+          ? beers.map((beer) => {
+              const urlToBeerDetails = `/${beer.id}`
 
-          return (
-            <li key={beer.id} className={styles.item}>
-              <BeerSummary
-                name={beer.name}
-                tagline={beer.tagline}
-                imageUrl={beer.image_url}
-                abv={beer.abv}
-                urlToBeerDetails={urlToBeerDetails}
-              />
-            </li>
-          )
-        })}
+              return (
+                <li key={beer.id} className={styles.item}>
+                  <BeerSummary
+                    name={beer.name}
+                    tagline={beer.tagline}
+                    imageUrl={beer.image_url}
+                    abv={beer.abv}
+                    urlToBeerDetails={urlToBeerDetails}
+                  />
+                </li>
+              )
+            })
+          : null}
       </ul>
-    </>
+    </Page>
   )
 }
 
