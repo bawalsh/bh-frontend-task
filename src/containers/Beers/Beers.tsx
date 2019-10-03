@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import { API_URL } from 'config'
-import styles from 'components/Beers/Beers.module.css'
+import styles from 'containers/Beers/Beers.module.css'
 import BeerCompact from 'components/BeerCompact/BeerCompact'
 import Loader from 'components/Loader/Loader'
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Beers from 'components/Beers/Beers'
-import Beer from 'components/Beer/Beer'
+import Beers from 'containers/Beers/Beers'
+import Beer from 'containers/Beer/Beer'
 
 const App: React.FC = () => (
   <Router>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 
 import { renderWithRouter, fireEvent, waitForElement } from 'test-utils'
-import App from 'components/App'
+import App from 'App'
 
 describe('home', () => {
   it('links beer names to the detail view of the relevant beer', async () => {

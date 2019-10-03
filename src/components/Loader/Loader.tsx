@@ -27,7 +27,7 @@ const Loader: React.FC<Props> = ({
     return () => {
       clearInterval(interval)
     }
-  })
+  }, [dots, speed])
 
   const text = `${message} ${'.'.repeat(numDots)}`
 
