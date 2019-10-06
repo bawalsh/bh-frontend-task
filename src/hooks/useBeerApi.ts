@@ -15,6 +15,7 @@ const useBeerApi: <T>(x: string) => [T | undefined, string] = <T>(
 
       if (shouldSet) {
         if (res.ok) {
+          setError('')
           setData(await res.json())
         } else {
           setError('Could not fetch data')
