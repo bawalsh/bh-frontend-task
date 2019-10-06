@@ -21,11 +21,14 @@ type BeerResponse = {
 }[]
 
 const Beer: React.FC<RouteComponentProps<Params>> = ({ match }) => {
-  const beerData = useBeerApi<BeerResponse>(`/beers/${match.params.id}`)
+  const [beerData, error] = useBeerApi<BeerResponse>(
+    `/beers/${match.params.id}`
+  )
   const beer = beerData ? beerData[0] : null
 
   return (
-    <Page title="Beer Details" isLoading={!beer}>
+    <Page title="Beer Details" isLoading={!beer && !error}>
+      {error ? <p>{error}</p> : null}
       {beer ? (
         <section className={styles.container}>
           <div className={styles.image}>

@@ -10,14 +10,14 @@ type Props = {
 }
 
 const Page: React.FC<Props> = ({ title, isLoading, children }) => {
-  if (isLoading) return <Loader message={`Loading ${title}`} />
+  const loader = <Loader message={`Loading ${title}`} />
 
   return (
-    <>
+    <main className={styles.container}>
       <h1 className={styles.heading}>{title}</h1>
       <br />
-      {children}
-    </>
+      {isLoading ? loader : children}
+    </main>
   )
 }
 

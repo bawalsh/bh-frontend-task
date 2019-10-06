@@ -14,10 +14,11 @@ type BeersResponse = {
 }[]
 
 const Beers: React.FC = () => {
-  const beers = useBeerApi<BeersResponse>('/beers')
+  const [beers, error] = useBeerApi<BeersResponse>('/beers')
 
   return (
-    <Page isLoading={!beers || beers.length === 0} title="Beers">
+    <Page isLoading={!beers && !error} title="Beers">
+      {error ? <p>{error}</p> : null}
       <ul className={styles.list}>
         {beers
           ? beers.map((beer) => {

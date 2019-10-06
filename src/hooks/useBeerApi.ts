@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
 import { API_URL } from 'config'
 
-const useBeerApi = <T>(endpoint: string) => {
+const useBeerApi: <T>(x: string) => [T | undefined, string] = <T>(
+  endpoint: string
+) => {
   const [data, setData] = useState<T>()
+  const [error, setError] = useState('')
 
   useEffect(() => {
     let shouldSet = true
@@ -10,8 +13,12 @@ const useBeerApi = <T>(endpoint: string) => {
     const fetchData = async () => {
       const res = await fetch(`${API_URL}${endpoint}`)
 
-      if (res.ok && shouldSet) {
-        setData(await res.json())
+      if (shouldSet) {
+        if (res.ok) {
+          setData(await res.json())
+        } else {
+          setError('Could not fetch data')
+        }
       }
     }
 
@@ -21,7 +28,7 @@ const useBeerApi = <T>(endpoint: string) => {
     }
   }, [endpoint])
 
-  return data
+  return [data, error]
 }
 
 export default useBeerApi

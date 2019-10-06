@@ -42,7 +42,7 @@ describe('home', () => {
 })
 
 describe('detail', () => {
-  it('displays the description of the beer routed to', async () => {
+  it('displays the details of the beer routed to', async () => {
     const startingRoute = '/7'
     const { getByText } = renderWithRouter(
       <>
@@ -55,13 +55,27 @@ describe('detail', () => {
       { route: startingRoute }
     )
 
+    const title = await waitForElement(() => getByText('AB:12'))
+    const tagline = await waitForElement(() =>
+      getByText('Imperial Black Belgian Ale.')
+    )
     const description = await waitForElement(() =>
       getByText(
         'An Imperial Black Belgian Ale aged in old Invergordon Scotch whisky barrels with mountains of raspberries, tayberries and blackberries in each cask. Decadent but light and dry, this beer would make a fantastic base for ageing on pretty much any dark fruit - we used raspberries, tayberries and blackberries beause they were local.'
       )
     )
+    const abv = await waitForElement(() => getByText('11.2'))
+    const brewedDate = await waitForElement(() => getByText('07/2012'))
+    const foodPairings = await waitForElement(() =>
+      getByText('Raspberry chocolate torte')
+    )
 
+    expect(title).toBeTruthy()
+    expect(tagline).toBeTruthy()
     expect(description).toBeTruthy()
+    expect(abv).toBeTruthy()
+    expect(brewedDate).toBeTruthy()
+    expect(foodPairings).toBeTruthy()
   })
 
   it('shows loader while fetching beer details', async () => {
