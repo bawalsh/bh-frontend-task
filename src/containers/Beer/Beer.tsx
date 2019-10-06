@@ -49,7 +49,7 @@ const Beer: React.FC<RouteComponentProps<Params>> = ({ match }) => {
               {beer.abv}
             </p>
             <p>
-              <span className={styles.detailLabel}>First Brewed: </span>
+              <span className={styles.detailLabel}>Brewed Date: </span>
               {beer.first_brewed}
             </p>
             <br />
