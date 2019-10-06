@@ -30,16 +30,16 @@ const BeerSummary: React.FC<Props> = ({
   <section className={styles.container}>
     <img src={imageUrl} className={styles.image} alt={name} />
     <div className={styles.content}>
-      <h2 className={styles.heading}>
-        <Link to={urlToBeerDetails}>{trimText(name)}</Link>
-      </h2>
-      <p className={styles.tagline}>{tagline}</p>
-      <br />
-      <span className={styles.abv}>
+      <div>
+        <h2 className={styles.heading}>
+          <Link to={urlToBeerDetails}>{trimText(name)}</Link>
+        </h2>
+        <p className={styles.tagline}>{tagline}</p>
+      </div>
+      <p>
+        <span className={styles.abv}>ABV: </span>
         {abv}
-        <br />
-        ABV
-      </span>
+      </p>
     </div>
   </section>
 )

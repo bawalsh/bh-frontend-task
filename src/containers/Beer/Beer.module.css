@@ -1,13 +1,13 @@
 .container {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   max-width: 40em;
+  justify-content: space-evenly;
 }
 
 .heading {
-  font-size: 3em;
+  font-size: 2.5em;
   font-weight: 600;
-  margin-bottom: 0.1em;
 }
 
 .tagline {
@@ -19,13 +19,11 @@
 }
 
 .image {
-  height: 25em;
-  margin: 0 auto 0 auto;
+  width: 7em;
 }
 
 .content {
-  width: 60%;
-  margin-left: 1em;
+  max-width: 25em;
 }
 
 .list {

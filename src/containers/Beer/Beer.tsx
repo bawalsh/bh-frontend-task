@@ -28,7 +28,13 @@ const Beer: React.FC<RouteComponentProps<Params>> = ({ match }) => {
     <Page title="Beer Details" isLoading={!beer}>
       {beer ? (
         <section className={styles.container}>
-          <img src={beer.image_url} className={styles.image} alt={beer.name} />
+          <div className={styles.image}>
+            <img
+              src={beer.image_url}
+              alt={beer.name}
+              style={{ width: '100%', height: 'auto' }}
+            />
+          </div>
           <div className={styles.content}>
             <h2 className={styles.heading}>{beer.name}</h2>
             <p className={styles.tagline}>{beer.tagline}</p>

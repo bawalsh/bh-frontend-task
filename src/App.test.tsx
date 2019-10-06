@@ -26,6 +26,19 @@ describe('home', () => {
     fireEvent.click(lastBeerHeader, leftClick)
     expect(getByText('matching id: 25')).toBeTruthy()
   })
+
+  it('shows loader while beer data is being fetched', async () => {
+    const { getByText } = renderWithRouter(
+      <>
+        <App />
+      </>
+    )
+
+    const loader = await waitForElement(() => getByText('Loading Beers'))
+    expect(loader).toBeTruthy()
+    const firstBeerHeader = await waitForElement(() => getByText('Buzz'))
+    expect(firstBeerHeader).toBeTruthy()
+  })
 })
 
 describe('detail', () => {
@@ -49,5 +62,20 @@ describe('detail', () => {
     )
 
     expect(description).toBeTruthy()
+  })
+
+  it('shows loader while fetching beer details', async () => {
+    const startingRoute = '/1'
+    const { getByText } = renderWithRouter(
+      <>
+        <App />
+      </>,
+      { route: startingRoute }
+    )
+
+    const loader = await waitForElement(() => getByText('Loading Beer Details'))
+    expect(loader).toBeTruthy()
+    const beerHeading = await waitForElement(() => getByText('Buzz'))
+    expect(beerHeading).toBeTruthy()
   })
 })
