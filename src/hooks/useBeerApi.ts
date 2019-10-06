@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+
 import { API_URL } from 'config'
 
 const useBeerApi: <T>(x: string) => [T | undefined, string] = <T>(

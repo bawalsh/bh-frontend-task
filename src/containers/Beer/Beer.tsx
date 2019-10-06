@@ -2,8 +2,8 @@ import React from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 
 import styles from 'containers/Beer/Beer.module.css'
-import Page from '../Page/Page'
-import useBeerApi from '../../hooks/useBeerApi'
+import Page from 'components/Page/Page'
+import useBeerApi from 'hooks/useBeerApi'
 
 type Params = {
   id: string

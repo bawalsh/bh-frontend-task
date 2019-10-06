@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from 'containers/Beers/Beers.module.css'
 import BeerSummary from 'components/BeerSummary/BeerSummary'
-import Page from 'containers/Page/Page'
+import Page from 'components/Page/Page'
 import useBeerApi from 'hooks/useBeerApi'
 
 type BeersResponse = {
